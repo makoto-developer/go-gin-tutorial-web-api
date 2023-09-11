@@ -1,16 +1,19 @@
-# go/gin
+# Gin
 
-go + gin の小さなサンプル
+go/ginサンプルコード
 
-# 実行
+## Stack
+- go v1.21.1
+- gin
+
+## 実行
 
 ```zsh
 go run .
 ```
 
-# curl
+全てのアルバムリスト取得
 
-get
 
 ```zsh
 curl http://localhost:8080/albums \
@@ -18,13 +21,21 @@ curl http://localhost:8080/albums \
     --request "GET"
 ```
 
-post
+アルバムを追加
 
 ```zsh
 curl http://localhost:8080/albums \
     --include \
     --header "Content-Type: application/json" \
     --request "POST" \
-    --data '{"id": "4","title": "The Modern Sound of Betty Carter","artist": "Betty Carter","price": 49.99}'
+    --data '{"id": "4","title": "only my railgun","artist": "FripSide","price": 30.2, "tax": 0.1}'
+```
+
+アルバムIDからアルバムの詳細を取得
+
+```zsh
+curl http://localhost:8080/albums/1 \
+    --header "Content-Type: application/json" \
+    --request "GET"
 ```
 
